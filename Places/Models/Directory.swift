@@ -6,6 +6,8 @@
 //  Copyright © 2016 Tec-Tec. All rights reserved.
 //
 
+import Foundation
+
 class Directory {
 
     static let instance = Directory()
@@ -26,6 +28,9 @@ class Directory {
             return
         }
         places.append(place)
+
+        let notCenter = NotificationCenter.default
+        notCenter.post(name: Notification.Name("modelUpdated"), object: nil)
     }
 
     func remove(_ place: Place) {
@@ -33,12 +38,14 @@ class Directory {
             return
         }
         places.remove(at: index)
+        let notCenter = NotificationCenter.default
+        notCenter.post(name: Notification.Name("modelUpdated"), object: nil)
     }
 
     private func generateDemoData() {
         let place = Place(name: "First", adress: "Adress first", phoneNumber: "0689986575", websiteURL: nil, note: 2.5, numberOfReviews: 1, latitude: 0.0, longitude: 0.0, source: .internet)
         add(place)
-        for i in 0...99 {
+        for i in 0...4 {
             let place = Place(name: "Resto \(i)", adress: "Adress \(i)", phoneNumber: "06899865\(i)", websiteURL: nil, note: 2.5, numberOfReviews: 1, latitude: 0.0, longitude: 0.0, source: .local)
             add(place)
         }
