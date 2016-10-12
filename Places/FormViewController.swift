@@ -25,6 +25,9 @@ class FormViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func cancel(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
