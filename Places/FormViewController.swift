@@ -10,6 +10,15 @@ import UIKit
 
 class FormViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var adressTextField: UITextField!
+    @IBOutlet weak var latitudeTextField: UITextField!
+    @IBOutlet weak var longitudeTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var websiteTextField: UITextField!
+    @IBOutlet weak var noteSlider: UISlider!
+    @IBOutlet weak var noteLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +36,12 @@ class FormViewController: UIViewController {
 
     @IBAction func cancel(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func noteSliderValueChanged(_ sender: UISlider) {
+        let value = Int(sender.value)
+        noteLabel.text = "\(value)/5"
+        sender.setValue(Float(value), animated: true)
     }
     /*
     // MARK: - Navigation

@@ -86,9 +86,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-MT-uhd">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-MT-uhd">
                                 <frame key="frameInset" minX="86" minY="300" width="275" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="noteSliderValueChanged:" destination="qzX-ZT-xLE" eventType="valueChanged" id="Jm3-e9-A3h"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvt-tq-Yie">
                                 <frame key="frameInset" minX="16" minY="115" width="53" height="21"/>
@@ -167,6 +170,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgu-2j-Swq">
+                                <frame key="frameInset" minX="154" minY="338" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.81176470590000005" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -182,6 +192,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="adressTextField" destination="vS1-YJ-Ufg" id="KkR-YL-VB2"/>
+                        <outlet property="latitudeTextField" destination="fDA-1E-4Fx" id="ggk-zN-LOK"/>
+                        <outlet property="longitudeTextField" destination="W4y-0k-RF1" id="gdy-oM-j9g"/>
+                        <outlet property="nameTextField" destination="rnR-r7-JmT" id="ahm-jg-9sS"/>
+                        <outlet property="noteLabel" destination="qgu-2j-Swq" id="gjg-Yv-3ul"/>
+                        <outlet property="noteSlider" destination="2a8-MT-uhd" id="PIa-OY-RhK"/>
+                        <outlet property="phoneTextField" destination="aYK-vd-FZU" id="NdX-JG-OUc"/>
+                        <outlet property="websiteTextField" destination="dhw-Nv-Aco" id="Qb9-YS-NBs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elv-rz-pCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
