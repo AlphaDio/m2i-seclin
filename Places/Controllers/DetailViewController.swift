@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SafariServices
 
 class DetailViewController: UIViewController {
 
@@ -40,16 +41,10 @@ class DetailViewController: UIViewController {
         noteAndReviewsLabel.text = "\(place.note)/5, basé sur \(place.numberOfReviews) avis"
         sourceLabel.text = place.source.rawValue.capitalized
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func showWebsite(_ sender: AnyObject) {
+        guard let url = currentPlace?.websiteURL else { return }
+        let controller = SFSafariViewController(url: url)
+        present(controller, animated: true, completion: nil)
     }
-    */
-
 }
