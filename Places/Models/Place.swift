@@ -8,7 +8,28 @@
 
 import Foundation
 
-struct Place {
+protocol Adressable {
+    var adress: String {get}
+}
+
+protocol Mappable: Adressable {
+    var latitude: Double {get}
+    var longitude: Double {get}
+}
+
+extension Mappable {
+    var latitude: Double {
+        //Faire appel à un geocoder qui transforme l'adress en coordonées
+        print(adress)
+        return 0.0
+    }
+
+    var longitude: Double {
+        return 0.0
+    }
+}
+
+struct Place: Equatable, Mappable {
 
     enum Source {
         case local
@@ -40,4 +61,11 @@ struct Place {
     let longitude: Double
 
     let source: Source
+
+    static func ==(lhs: Place, rhs: Place) -> Bool {
+        guard lhs.name == rhs.name && lhs.adress == rhs.adress else {
+            return false
+        }
+        return true
+    }
 }
