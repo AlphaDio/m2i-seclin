@@ -17,6 +17,7 @@
 		3362F34A1DAE256800F4D29E /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362F3491DAE256800F4D29E /* FormViewController.swift */; };
 		3362F34C1DAE260100F4D29E /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362F34B1DAE260100F4D29E /* Directory.swift */; };
 		3362F34F1DAE3E3F00F4D29E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362F34E1DAE3E3F00F4D29E /* Extensions.swift */; };
+		3362F3521DAE5F9E00F4D29E /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362F3511DAE5F9E00F4D29E /* PlacesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3362F3491DAE256800F4D29E /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		3362F34B1DAE260100F4D29E /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		3362F34E1DAE3E3F00F4D29E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3362F3511DAE5F9E00F4D29E /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				3362F3491DAE256800F4D29E /* FormViewController.swift */,
+				3362F3511DAE5F9E00F4D29E /* PlacesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				3362F3071DAD15F800F4D29E /* Places.xcdatamodeld in Sources */,
 				3362F34A1DAE256800F4D29E /* FormViewController.swift in Sources */,
 				3362F3471DAE255800F4D29E /* Place.swift in Sources */,
+				3362F3521DAE5F9E00F4D29E /* PlacesTableViewController.swift in Sources */,
 				3362F34C1DAE260100F4D29E /* Directory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
