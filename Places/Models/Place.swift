@@ -31,7 +31,7 @@ extension Mappable {
 
 struct Place: Equatable, Mappable {
 
-    enum Source {
+    enum Source: String {
         case local
         case internet
 
