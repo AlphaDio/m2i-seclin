@@ -6,4 +6,25 @@
 //  Copyright © 2016 Tec-Tec. All rights reserved.
 //
 
-import Foundation
+class Directory {
+
+    private var places: [Place] = []
+
+    var allPlaces: [Place] {
+        return places
+    }
+
+    func add(_ place: Place) {
+        guard !places.contains(place) else {
+            return
+        }
+        places.append(place)
+    }
+
+    func remove(_ place: Place) {
+        guard let index = places.index(of: place) else {
+            return
+        }
+        places.remove(at: index)
+    }
+}
