@@ -19,6 +19,19 @@ class FormViewController: UIViewController {
     @IBOutlet weak var noteSlider: UISlider!
     @IBOutlet weak var noteLabel: UILabel!
 
+    private var placeFromForm: Place? {
+        guard let name = nameTextField.text else { return nil }
+        guard name.characters.count > 2 else { return nil }
+        guard let adress = adressTextField.text else { return nil}
+        guard adress.characters.count > 2 else { return nil }
+        guard let lat = latitudeTextField.text, let latDouble = Double(lat) else { return nil}
+        guard let long = longitudeTextField.text, let longDouble = Double(long) else { return nil}
+        guard let urlString = websiteTextField.text else { return nil }
+
+        let place = Place(name: name, adress: adress, phoneNumber: phoneTextField.text, websiteURL: URL(string: urlString), note: noteSlider.value, numberOfReviews: 1, latitude: latDouble, longitude: longDouble, source: .local)
+        return place
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.worldlineBlue
@@ -30,6 +43,10 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func saveForm(_ sender: AnyObject) {
+
+        guard let place = placeFromForm else { return }
+
+        Directory.instance.add(place)
         dismiss(animated: true, completion: nil)
     }
 
