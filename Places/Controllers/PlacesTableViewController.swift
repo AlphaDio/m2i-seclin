@@ -27,25 +27,26 @@ class PlacesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Directory.instance.allPlaces.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath)
+        // let cell2 = tableView.dequeueReusableCell(withIdentifier: "placeCell") Vieille façon, ne plus utiliser !!!!
 
-        // Configure the cell...
+        let place = Directory.instance.allPlaces[indexPath.row]
 
+        cell.textLabel?.text = place.name
+        cell.detailTextLabel?.text = "Note : \(place.note), basé sur \(place.numberOfReviews) reviews"
+
+        //Attention aux problèmes de recyclage de cell !!
+        /* if place.source == .internet {
+            cell.backgroundColor = UIColor.green
+        }*/
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
