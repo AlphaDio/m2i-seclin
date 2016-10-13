@@ -35,7 +35,7 @@ class Directory {
         places.append(place)
 
         let notCenter = NotificationCenter.default
-        notCenter.post(name: Notification.Name("modelUpdated"), object: nil)
+        notCenter.post(name: Notification.Name(Constants.NotificationNames.modelUpdated), object: nil)
     }
 
     func remove(_ place: Place) throws {
@@ -44,7 +44,7 @@ class Directory {
         }
         places.remove(at: index)
         let notCenter = NotificationCenter.default
-        notCenter.post(name: Notification.Name("modelUpdated"), object: nil)
+        notCenter.post(name: Notification.Name(Constants.NotificationNames.modelUpdated), object: nil)
     }
 
     private func generateDemoData() {

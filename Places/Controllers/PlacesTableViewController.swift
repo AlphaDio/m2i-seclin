@@ -15,7 +15,7 @@ class PlacesTableViewController: UITableViewController {
 
         let notCenter = NotificationCenter.default
 
-        notCenter.addObserver(forName: Notification.Name("modelUpdated"), object: nil, queue: OperationQueue.main) { (notif) in
+        notCenter.addObserver(forName: Notification.Name(Constants.NotificationNames.modelUpdated), object: nil, queue: OperationQueue.main) { (notif) in
             self.tableView.reloadData()
         }
     }
