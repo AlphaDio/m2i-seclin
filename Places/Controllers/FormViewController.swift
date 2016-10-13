@@ -21,7 +21,10 @@ class FormViewController: UIViewController {
 
     private var placeFromForm: Place? {
         guard let name = nameTextField.text else { return nil }
-        guard name.characters.count > 2 else { return nil }
+        guard name.characters.count > 2 else {
+            nameTextField.sayNo()
+            return nil
+        }
         guard let adress = adressTextField.text else { return nil}
         guard adress.characters.count > 2 else { return nil }
         guard let lat = latitudeTextField.text, let latDouble = Double(lat) else { return nil}
