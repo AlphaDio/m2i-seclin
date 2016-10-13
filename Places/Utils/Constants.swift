@@ -10,6 +10,7 @@ struct Constants {
 
     struct UserDefaults {
         static let firstName = "firstNameUserDefaultsKey"
+        static let lastSavedName = "lastSavedName"
     }
 
     struct NotificationNames {

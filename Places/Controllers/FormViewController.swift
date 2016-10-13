@@ -10,6 +10,7 @@ import UIKit
 
 class FormViewController: UIViewController {
 
+    @IBOutlet weak var lastSavedPlaceLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var adressTextField: UITextField!
     @IBOutlet weak var latitudeTextField: UITextField!
@@ -38,6 +39,18 @@ class FormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.worldlineBlue
+
+        let prefs = UserDefaults.standard
+
+//        if prefs.string(forKey: Constants.UserDefaults.lastSavedName) == nil {
+//            let last = "Aucun"
+//        } else {
+//            let last = prefs.string(forKey: Constants.UserDefaults.lastSavedName)!
+//        }
+
+//        La ligne avec ?? est équivalente à celles de dessus
+        let last = prefs.string(forKey: Constants.UserDefaults.lastSavedName) ?? "Aucun"
+        lastSavedPlaceLabel.text = last
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +64,9 @@ class FormViewController: UIViewController {
 
         do {
             try Directory.instance.add(place)
+
+            let def = UserDefaults.standard
+            def.set(place.name, forKey: Constants.UserDefaults.lastSavedName)
             dismiss(animated: true, completion: nil)
         } catch Directory.DirectoryError.alreadyIn {
             print("Already in")
