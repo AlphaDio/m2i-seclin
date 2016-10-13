@@ -46,8 +46,17 @@ class FormViewController: UIViewController {
 
         guard let place = placeFromForm else { return }
 
-        Directory.instance.add(place)
-        dismiss(animated: true, completion: nil)
+        do {
+            try Directory.instance.add(place)
+            dismiss(animated: true, completion: nil)
+        } catch Directory.DirectoryError.alreadyIn {
+            print("Already in")
+            let controller = UIAlertController.justAnAlert(message: "Cassé")
+            present(controller, animated: true, completion: nil)
+        } catch {
+
+        }
+
     }
 
     @IBAction func cancel(_ sender: AnyObject) {

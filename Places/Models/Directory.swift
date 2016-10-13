@@ -10,6 +10,11 @@ import Foundation
 
 class Directory {
 
+    enum DirectoryError: Error {
+        case alreadyIn (place: Place)
+        case notIn (place: Place)
+    }
+
     static let instance = Directory()
 
     private var places: [Place]
@@ -23,9 +28,9 @@ class Directory {
         generateDemoData()
     }
 
-    func add(_ place: Place) {
+    func add(_ place: Place) throws {
         guard !places.contains(place) else {
-            return
+            throw DirectoryError.alreadyIn(place: place)
         }
         places.append(place)
 
@@ -33,9 +38,9 @@ class Directory {
         notCenter.post(name: Notification.Name("modelUpdated"), object: nil)
     }
 
-    func remove(_ place: Place) {
+    func remove(_ place: Place) throws {
         guard let index = places.index(of: place) else {
-            return
+            throw DirectoryError.notIn(place: place)
         }
         places.remove(at: index)
         let notCenter = NotificationCenter.default
